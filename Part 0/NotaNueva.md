@@ -25,3 +25,83 @@ By helping your company become a Github Sponsor, you will not only feel great ab
 By becoming a Github Sponsor, your company and brand will be recognized as a one that gives back to the open source tools that run your business and one that respects your developers time and your customers' experience. You also receive premium perks based on your sponsorship tier for things like free advertising on my web properties, free course vouchers, exclusive access to private repos and tools, free consultation hours with yours truly, and even on-demand support!
 
 ### Perks
+
+
+#### .start(tour)
+- Starts a Tour
+- Params:
+  *	*tour*: Tour Object
+- Returns:
+  *	Promise that resolves when the tour is finished or rejected when aborted.
+
+#### .stop()
+- Stops a Tour
+- Returns:
+  *	Promise that resolves when the tour is stopped.
+
+#### .next()
+- Goes to the next step in the current tour
+- Returns:
+  *	Promise that resolves when the next step is reached
+
+#### .previous()
+- Goes to the previous step in the current tour
+  *	Promise that resolves when the previous step is reached
+
+#### .goto(index)
+- Goes to a specific step in the tour
+- Params:
+  *	*index*: The 0-index number of the step eg. `0, 1, 2, 3`
+
+- Returns:
+  *	Promise that resolves when the specific step is reached
+
+
+## Using Promise Event Hooks
+You can pass any function that returns a promise to the `before` and `after` properties for any step.  When the promise resolves, the tour moves on accordingly.
+
+#### Example
+```javascript
+var tour = {
+	steps: [{
+      target: '#first-element',
+      content: 'This is the first step!',
+    }, {
+      target: '.some .other .element',
+      content: 'Blah blah blah.',
+      before: () => {
+      	// Do something amazing
+      	return new Promise()
+    	}
+    }, {
+      target: '#menu-element',
+      content: 'I guess this is a menu!',
+      after: () => {
+      	// Do some more cool stuff
+      	return new Promise()
+    	}
+    }, {
+      target: '#last-element',
+      content: 'It is over! :(',
+    }]
+}
+```
+
+
+# Tour
+
+A simple, minimalist touring and on-boarding library for javascript
+
+[![](https://avatars0.githubusercontent.com/u/20192755?v=3&s=500)](http://tourjs.github.io/tour)
+
+[![Join the chat at https://gitter.im/tourjs/tour](https://badges.gitter.im/tourjs/tour.svg)](https://gitter.im/tourjs/tour?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+## [Awesome Demo](http://tourjs.github.io/tour)
+
+## Features
+
+* Supports single page apps, and complex scrollable content
+*	Responsive & Intelligent
+*	Automagic Positioning
+*	Promise Driven Events & Hooks
+*	Tour does not manipulate or relayer your DOM elements in any way

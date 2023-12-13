@@ -1,3 +1,20 @@
+### Nueva Nota [+](https://studies.cs.helsinki.fi/exampleapp/notes): 
+
+> Formularios y HTTP POST, flujo para agregar una nueva nota:
+
+sequenceDiagram
+Usuario->>Navegador: Abre Navegacion
+Navegador->>Servidor: GET URL 
+Usuario->>Navegador: Nueva Nota
+loop Escribir Nota
+    Usuario->>Usuario: Nueva Nota Escrita
+end
+Usuario->>Navegador: Guardar
+Navegador->>Servidor: POST Nueva Nota
+Navegador->>Servidor: GET URL
+Usuario-->>Navegador: Cierra Navegacion
+
+
 ### Supercharging the React ecosystem via [TanStack](https://tanstack.com) with projects and products like:
 - 🤖 TanStack Query
 - 🤖 TanStack Table
